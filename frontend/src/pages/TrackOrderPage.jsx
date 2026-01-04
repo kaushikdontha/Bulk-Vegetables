@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import api from '../config/api'
 import './TrackOrderPage.css'
 
 function TrackOrderPage() {
@@ -18,7 +19,7 @@ function TrackOrderPage() {
         setSearched(true)
 
         try {
-            const response = await fetch(`/api/orders/${orderId.trim()}`)
+            const response = await fetch(`${api.orders}/${orderId.trim()}`)
             const data = await response.json()
 
             if (!response.ok) {

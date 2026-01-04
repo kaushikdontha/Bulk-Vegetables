@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import api from '../config/api'
 import './AdminPage.css'
 
 function AdminPage() {
@@ -13,7 +14,7 @@ function AdminPage() {
 
     const fetchOrders = async () => {
         try {
-            const response = await fetch('/api/admin/orders')
+            const response = await fetch(`${api.admin}/orders`)
             if (!response.ok) throw new Error('Failed to fetch orders')
             const data = await response.json()
             setOrders(data)
@@ -27,7 +28,7 @@ function AdminPage() {
     const updateOrderStatus = async (orderId, newStatus) => {
         setUpdating(orderId)
         try {
-            const response = await fetch(`/api/admin/orders/${orderId}`, {
+            const response = await fetch(`${api.admin}/orders/${orderId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: newStatus })
@@ -37,7 +38,6 @@ function AdminPage() {
                 throw new Error('Failed to update order status')
             }
 
-            // Update local state
             setOrders(orders.map(order =>
                 order.id === orderId ? { ...order, status: newStatus } : order
             ))

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
+import api from '../config/api'
 import './OrderPage.css'
 
 function OrderPage() {
@@ -23,7 +24,7 @@ function OrderPage() {
 
     const fetchProducts = async () => {
         try {
-            const response = await fetch('/api/products')
+            const response = await fetch(api.products)
             if (!response.ok) throw new Error('Failed to fetch products')
             const data = await response.json()
             setProducts(data)
@@ -45,7 +46,7 @@ function OrderPage() {
         setError(null)
 
         try {
-            const response = await fetch('/api/orders', {
+            const response = await fetch(api.orders, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -137,7 +138,7 @@ function OrderPage() {
                             >
                                 <option value="">Choose a vegetable/fruit</option>
                                 {products.map(product => (
-                                    <option key={product.id} value={product.name}>
+                                    <option key={product._id} value={product.name}>
                                         {product.name} - ₹{product.price}/{product.unit}
                                     </option>
                                 ))}

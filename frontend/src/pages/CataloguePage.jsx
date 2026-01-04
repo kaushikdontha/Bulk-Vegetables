@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import ProductCard from '../components/ProductCard'
+import api from '../config/api'
 import './CataloguePage.css'
 
 function CataloguePage() {
@@ -13,7 +14,7 @@ function CataloguePage() {
 
     const fetchProducts = async () => {
         try {
-            const response = await fetch('/api/products')
+            const response = await fetch(api.products)
             if (!response.ok) {
                 throw new Error('Failed to fetch products')
             }
@@ -55,7 +56,7 @@ function CataloguePage() {
 
             <div className="products-grid">
                 {products.map(product => (
-                    <ProductCard key={product.id} product={product} />
+                    <ProductCard key={product._id} product={product} />
                 ))}
             </div>
 
