@@ -2,8 +2,6 @@
 
 A full-stack web application for bulk ordering of vegetables and fruits. Built with React.js frontend and Node.js/Express backend with MongoDB database.
 
-
-
 ## Features
 
 - 🥬 **Product Catalogue** - Browse available vegetables and fruits with images and prices
@@ -25,6 +23,38 @@ A full-stack web application for bulk ordering of vegetables and fruits. Built w
 - MongoDB (Mongoose)
 - UUID for order IDs
 
+## Screenshots
+
+### Product Catalogue
+Browse fresh vegetables and fruits with real-time pricing.
+
+![Product Catalogue](Screenshort/screencapture-localhost-3000-2026-01-04-19_57_52.png)
+
+### Place Order
+Easy ordering system with product selection and delivery details.
+
+![Place Order](Screenshort/screencapture-localhost-3000-order-2026-01-04-20_00_25.png)
+
+### Order Confirmation
+Get your unique order ID after placing an order.
+
+![Order Confirmation](Screenshort/screencapture-localhost-3000-order-2026-01-04-20_00_40.png)
+
+### Track Order
+Track your order status using your unique order ID.
+
+![Track Order](Screenshort/screencapture-localhost-3000-track-2026-01-04-20_01_06.png)
+
+### Admin Dashboard
+View and manage all orders with status updates.
+
+![Admin Dashboard](Screenshort/screencapture-localhost-3000-admin-2026-01-04-20_01_40.png)
+
+### Admin - Order Delivered
+Mark orders as delivered with one click.
+
+![Admin Delivered](Screenshort/screencapture-localhost-3000-admin-2026-01-04-20_01_53.png)
+
 ## Project Structure
 
 ```
@@ -36,8 +66,7 @@ Vegetables/
 │   │   └── products.js
 │   ├── database.js
 │   ├── server.js
-│   ├── package.json
-│   └── .env.example
+│   └── package.json
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
@@ -61,16 +90,14 @@ Vegetables/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/freshbulk.git
-   cd freshbulk
+   git clone https://github.com/kaushikdontha/Bulk-Vegetables.git
+   cd Bulk-Vegetables
    ```
 
 2. **Setup Backend**
    ```bash
    cd backend
    npm install
-   cp .env.example .env
-   # Edit .env with your MongoDB connection string
    ```
 
 3. **Setup Frontend**
@@ -113,14 +140,7 @@ MONGODB_URI=your_mongodb_connection_string
 PORT=5000
 ```
 
-## Screenshots
+## Live Demo
 
-### Product Catalogue
-Browse fresh vegetables and fruits with real-time pricing.
-
-### Order Tracking
-Track your order status using your unique order ID.
-
-
-
-
+- **Frontend**: https://bulk-vegetables.vercel.app
+- **Backend API**: Hosted on Render
